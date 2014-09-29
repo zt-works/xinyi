@@ -2,6 +2,24 @@
 Thumbs.db
 ehthumbs.db
 
+*.pydevproject
+.project
+.metadata
+.idea
+/wp-admin
+/wp-includes
+/wp-content/uploads
+/wp-content/languages
+/wp-content/plugins
+/wp-content/themes/twentyeleven
+/wp-content/themes/twentyten
+/*.php
+/*.txt
+/*.gitignore
+/*.htaccess
+/*.gitattributes
+/wp-content/*.php
+
 # Folder config file
 Desktop.ini
 

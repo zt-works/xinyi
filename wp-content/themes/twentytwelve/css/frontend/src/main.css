@@ -1,0 +1,622 @@
+body{
+    padding-top: 120px;
+    margin: 0px;
+    font-family: "Arial","微软雅黑","黑体","Times New Roman", Verdana;
+    font-size: 14px;
+    background: #fff;
+}
+a{
+    text-decoration: none;
+    color: #fff;
+}
+ul{
+    list-style: none;
+    margin: 0px;
+    padding:0px;
+}
+li{
+    display: inline-block;
+}
+.textEllipsis{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.hidden{
+    display: none !important;
+}
+
+/*
+*整体布局
+*/
+.header{
+    position: fixed;
+    top:0px;
+    left:0px;
+    height: 120px;
+    width:100%;
+    background: #122937;
+    padding-top: 10px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    z-index: 9999;
+    box-shadow:0px 0px 3px 1px #d1d3d4;
+    filter: progid:DXImageTransform.Microsoft.Shadow(color='#d1d3d4', Direction=135, Strength=5);/*for ie6,7,8*/
+}
+
+/*
+*logo
+*/
+.logo{
+    display: inline-block;
+    margin:0px 0px 0px 20px;
+    vertical-align: top;
+    float: left;
+}
+.logo a{
+    font-size: 0px;
+    width:212px;
+    height: 86px;
+    display: block;
+    background: url(../../../images/frontend/app/logo.png) no-repeat;
+}
+/*
+*menu
+*/
+.menu-main-container{
+    display: inline-block;
+    float: right;
+    height: 100%;
+}
+.menu{
+    height: 100%;
+}
+.menu .menu-item{
+    height: 100%;
+}
+.menu .menu-item a{
+    color:#d1d3d4;
+    font-weight: bold;
+    font-size: 18px;
+    display: block;
+    height: 100%;
+    padding-top: 60px;
+    width: 130px;
+    text-align: center;
+    background: url(../../../images/frontend/app/iconIndexSmall.png) no-repeat center 10px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+.menu>.menu-item+.menu-item a{
+    background: url(../../../images/frontend/app/iconClassesSmall.png) no-repeat center 10px;
+}
+.menu>.menu-item+.menu-item+.menu-item a{
+    background: url(../../../images/frontend/app/iconTeachersSmall.png) no-repeat center 10px;
+}
+.menu>.menu-item+.menu-item+.menu-item+.menu-item a{
+    background: url(../../../images/frontend/app/iconNewsSmall.png) no-repeat center 10px;
+}
+.menu>.menu-item+.menu-item+.menu-item+.menu-item+.menu-item a{
+    background: url(../../../images/frontend/app/iconAboutUsSmall.png) no-repeat center 10px;
+}
+.menu .menu-item a:hover, .menu .current-menu-item a, .menu .current-post-ancestor a{
+    color: #00aeef;
+    border-bottom: 4px solid #00aeef;
+}
+
+/*
+*推荐文章
+*/
+.topPostContainer{
+    overflow: hidden;
+}
+.topPostList{
+    position: relative;
+    font-size: 0px;
+    white-space: nowrap;
+    letter-spacing: -3px;
+    left:0px;
+    top:0px;
+}
+.topPostList .item{
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    vertical-align: top;
+    letter-spacing: normal;
+    position: relative;
+}
+.topPostList .item .background{
+    width: 100%;
+    height: auto;
+}
+.topPostList .item .info{
+    position: absolute;
+    width:80%;
+    height:300px;
+    top:50%;
+    left:50%;
+    margin:-150px 0px 0px -40%;
+    color: #d1d3d4;
+    text-align: center;
+}
+.topPostList .item .info .subTitle{
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+.topPostList .item .info .title{
+    font-size: 42px;
+    margin: 20px 0px 50px 0px;
+}
+.topPostList .item .info .detail{
+    font-size: 24px;
+    border: 2px solid #d1d3d4;
+    padding:10px 30px;
+}
+/**
+*上下按钮
+*/
+.navBtn{
+    display: block;
+    position: absolute;
+    top:50%;
+    width:55px;
+    height: 70px;
+    border: 2px solid #d1d3d4;
+    font-size: 0px;
+    z-index: 2
+}
+.navBtn.prevBtn{
+    left: 30px;
+    background:url(../../../images/frontend/app/arrowLeft.png) no-repeat center center;
+}
+.navBtn.nextBtn{
+    right:30px;
+    background: url(../../../images/frontend/app/arrowRight.png) no-repeat center center;
+}
+
+/*
+*各分类单元
+*/
+.section{
+    padding-bottom: 120px;
+    padding-top: 40px;
+}
+.section .sectionTitle{
+    padding-top:85px;
+    background: url(../../../images/frontend/app/iconClassesBig.png) no-repeat center top;
+    text-align: center;
+    color:#122937;
+    font-size: 36px;
+    margin: 0px 0px 40px 0px;
+}
+.section .sectionAbstract{
+    width: 60%;
+    margin: auto;
+    text-align: center;
+    font-size: 18px;
+    color: #999;
+}
+.section .more{
+    display: block;
+    width: 170px;
+    height: 40px;
+    margin:50px 0px;
+    line-height: 40px;
+    font-size:18px;
+    text-align: center;
+    float: right;
+    background: url(../../../images/frontend/app/iconMoreBlue.png) no-repeat;
+}
+.section .more.gray{
+    color:#000;
+    background: url(../../../images/frontend/app/iconMoreGray.png) no-repeat;
+}
+/*
+*课程资料
+*/
+.coursesList{
+    margin-top: 50px;
+}
+.coursesList .item{
+    display: list-item;
+    width: 100%;
+    text-align: center;
+    border-top:2px dotted #122937;
+}
+.coursesList .item:last-child{
+    border-bottom:2px dotted #122937;
+}
+.coursesList .item .info{
+    display: inline-block;
+    vertical-align: top;
+}
+.coursesList .item .info .date{
+    font-size: 14px;
+    font-weight: bold;
+}
+.coursesList .item .info .title{
+    font-size: 24px;
+}
+.coursesList .item .info .teacher{
+    font-size: 18px;
+}
+.coursesList .item .detail{
+    font-size: 18px;
+    background: #122937;
+    color:#d1d3d4;
+    width: 150px;
+    text-align: center;
+    display: inline-block;
+    vertical-align: top;
+    height: 40px;
+    line-height: 40px;
+    margin-left: 50px;
+    margin-top: 50px;
+}
+
+/*
+*名师
+*/
+.teachersSection{
+    background:#122937;
+}
+.teachersSection .sectionTitle{
+    color:#d1d3d4;
+    background: url(../../../images/frontend/app/iconTeachersBig.png) no-repeat center top;
+}
+.teachersList{
+    margin-top: 50px;
+}
+.teachersList .item{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    width: 33%;
+    padding:0px 20px;
+    border-right: 2px dotted #d1d3d4;
+    color: #d1d3d4;
+    font-size: 18px;
+}
+.teachersList .item:last-child{
+    border-right: none;
+}
+.teachersList .item .thumb{
+    width: 100%;
+    height: auto;
+}
+.teachersList .item .title{
+    font-size:36px;
+    margin:15px 0px;
+}
+.teachersList .item .grade{
+
+}
+.teachersList .item .course{
+    margin-left: 50px;
+}
+.teachersList .item .abstract{
+
+}
+.teachersList .item .detail{
+    font-size: 18px;
+    background: #d1d3d4;
+    color:#122937;
+    width: 150px;
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+    display: block;
+    margin:80px auto 50px auto;
+}
+
+/*
+*动态
+*/
+.newsSection{
+
+}
+.newsSection .sectionTitle{
+    background: url(../../../images/frontend/app/iconNewsBig.png) no-repeat center top;
+}
+.newsSection .item{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    width: 33%;
+    padding:0px 20px;
+    border-right: 2px dotted #d1d3d4;
+    color: #122937;
+    font-size: 18px;
+}
+.newsSection .item:last-child{
+    border-right: none;
+}
+.newsSection .item .thumb{
+    width: 100%;
+    height: auto;
+}
+.newsSection .item .title{
+    font-size:24px;
+    margin:15px 0px;
+    text-align: center;
+}
+.newsSection .item .detail{
+    font-size: 18px;
+    background: #122937;
+    color:#d1d3d4;
+    width: 150px;
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+    display: block;
+    margin:80px auto 50px auto;
+}
+
+/**
+*关于我们
+*/
+.aboutUsSection{
+    background:#122937;
+}
+.aboutUsSection .sectionTitle{
+    color:#d1d3d4;
+    background: url(../../../images/frontend/app/iconAboutUsBig.png) no-repeat center top;
+}
+.aboutUsSection .content{
+    color: #d1d3d4;
+    width: 80%;
+    margin:auto;
+    font-size: 18px;
+}
+
+/**
+*页脚
+*/
+.footer{
+    width: 90%;
+    margin: auto;
+    color:#122937;
+}
+.footerList{
+    font-size: 0px;
+    margin-top: 50px;
+}
+.footerList .item{
+    width: 33%;
+    padding: 0px 30px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    vertical-align: top;
+    font-size: 14px;
+}
+.footerList .item .title{
+    font-size: 24px;
+    border-bottom: 2px solid #122937;
+}
+.footerList .item .row{
+    height: 30px;
+    line-height: 30px;
+}
+.footer .item .phoneRow{
+    height: 40px;
+    line-height: 40px;
+}
+.footerList .item .phone{
+    background: url(../../../images/frontend/app/iconPhone.png) no-repeat center center;
+    width: 40px;
+    height: 40px;
+    font-size: 0px;
+    display: inline-block;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+.footerList .item .radiusTxt{
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    border-radius: 10px;
+    color:#d1d3d4;
+    font-size: 20px;
+    background: #122937;
+    margin-right: 20px;
+    display: inline-block;
+}
+.footer .hr{
+    height:3px;
+    border: none;
+    border-top:3px solid #122937;
+}
+.footer .copyright{
+    text-align: center;
+    font-size: 14px;
+}
+
+/*
+*文章详情
+*/
+.singleTitle{
+    background: #fff;
+    padding:40px 0px;
+}
+.singleTitle .text{
+    display: block;
+    width: 80%;
+    text-align: center;
+    color:#122937;
+    font-size: 36px;
+    line-height: 50px;
+    margin: auto;
+}
+.singleContent{
+    padding:30px 10%;
+    background: #122937;
+    color: #d1d3d4;
+    font-size: 16px;
+}
+.singleContent img{
+    display: block;
+    max-width: 100% !important;
+}
+.singleInfo{
+    font-size: 0px;
+    background: #122937;
+    color: #d1d3d4;
+    padding: 40px 7%;
+ }
+.singleInfo .thumb{
+    width: 30%;
+    height: auto;
+    vertical-align: top;
+    display: inline-block;
+}
+.singleInfo .info{
+    margin-left: 5%;
+    display: inline-block;
+    width:65%;
+    font-size: 18px;
+}
+.singleIntroduce{
+    background: #122937;
+    padding:40px 10%;
+    font-size: 18px;
+    color: #d1d3d4;
+}
+
+/*
+*上一篇，下一篇
+*/
+.singleNav{
+    padding:20px 0px 50px 0px;
+    background: #122937;
+    height: 40px;
+}
+.singleNav .nav{
+    display: inline-block;
+    font-size: 18px;
+    text-align: center;
+}
+.singleNav .nav a{
+    height: 40px;
+    display: inline-block;
+    line-height: 40px;
+    width: 170px;
+    color: #122937;
+    background: url(../../../images/frontend/app/iconPrev.png) no-repeat;
+}
+.singleNav .navNext{
+    float:right;
+}
+.singleNav .navNext a{
+    background: url(../../../images/frontend/app/iconNext.png) no-repeat;
+}
+
+/*
+*分类文章列表
+*/
+.postList{
+    background:#122937;
+    color:#d1d3d4;
+}
+.postList .item{
+    border-bottom: 2px solid #d1d3d4;
+    position: relative;
+    width: 100%;
+    padding:20px 8%;
+    font-size: 0px;
+    box-sizing:border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+.postList .item .thumb{
+    width: 30%;
+    height: auto;
+    vertical-align: top;
+    display: inline-block;
+}
+.postList .item .info{
+    margin-left: 5%;
+    display: inline-block;
+    width:65%;
+    font-size: 16px;
+}
+.postList .item .info .title{
+    font-size: 24px;
+}
+.postList .item .info .course{
+    margin-left: 30px;
+}
+.postList .item .info .detail{
+    font-size: 16px;
+    background: #d1d3d4;
+    color:#122937;
+    width: 150px;
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+    display: block;
+    margin:80px 0px 0px 0px;
+}
+
+/**
+*分页
+*/
+.page-numbers{
+    background: #122937;
+    padding:50px 4%;
+}
+.page-numbers li a,.page-numbers li span{
+    text-decoration: none;
+    text-align: center;
+    padding: 0 15px;
+    font-size: 18px;
+    height: 40px;
+    line-height: 40px;
+    color: #fff;
+    border: 1px solid #fff;
+    display: inline-block;
+}
+.page-numbers li .current,.page-numbers li a:hover {
+    background: #fff;
+    color:#122937;
+}
+
+/*
+*课程搜索
+*/
+.filterContainer{
+    margin: 30px 0px;
+    text-align: center;
+    font-size: 18px;
+    color:#122937;
+}
+.filterContainer .labelTxt{
+    height: 40px;
+    line-height: 40px;
+    margin-left: 15px;
+}
+.filterContainer .selectTxt{
+    width: 250px;
+    height: 40px;
+    font-size:18px;
+    line-height: 40px;
+    border: 1px solid #d1d3d4;
+}
+.filterContainer .searchBtn{
+    height: 40px;
+    line-height: 40px;
+    width: 80px;
+    background:#122937;
+    color: #d1d3d4;
+    border: none;
+    vertical-align: middle;
+    margin-left: 15px;
+    cursor:pointer;
+}
+
+
+
