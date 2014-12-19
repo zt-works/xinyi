@@ -25,6 +25,9 @@ li{
 .hidden{
     display: none !important;
 }
+img{
+    border:none
+}
 
 /*
 *整体布局
@@ -111,6 +114,7 @@ li{
 */
 .topPostContainer{
     overflow: hidden;
+    position: relative;
 }
 .topPostList{
     position: relative;
@@ -165,6 +169,7 @@ li{
     width:55px;
     height: 70px;
     border: 2px solid #d1d3d4;
+    margin:-35px 0px 0px -27.5px;
     font-size: 0px;
     z-index: 2
 }
@@ -269,6 +274,7 @@ li{
 }
 .teachersList{
     margin-top: 50px;
+    font-size: 0px;
 }
 .teachersList .item{
     box-sizing: border-box;
@@ -279,6 +285,7 @@ li{
     border-right: 2px dotted #d1d3d4;
     color: #d1d3d4;
     font-size: 18px;
+    vertical-align: top;
 }
 .teachersList .item:last-child{
     border-right: none;
@@ -298,7 +305,10 @@ li{
     margin-left: 50px;
 }
 .teachersList .item .abstract{
-
+    font-size: 18px;
+    line-height: 20px;
+    height: 40px;
+    overflow: hidden;
 }
 .teachersList .item .detail{
     font-size: 18px;
@@ -321,7 +331,10 @@ li{
 .newsSection .sectionTitle{
     background: url(../../../images/frontend/app/iconNewsBig.png) no-repeat center top;
 }
-.newsSection .item{
+.newsList{
+    font-size: 0px;
+}
+.newsList .item{
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -330,20 +343,27 @@ li{
     border-right: 2px dotted #d1d3d4;
     color: #122937;
     font-size: 18px;
+    vertical-align: top;
 }
-.newsSection .item:last-child{
+.newsList .item:last-child{
     border-right: none;
 }
-.newsSection .item .thumb{
+.newsList .item .thumb{
     width: 100%;
     height: auto;
 }
-.newsSection .item .title{
+.newsList .item .title{
     font-size:24px;
     margin:15px 0px;
     text-align: center;
 }
-.newsSection .item .detail{
+.newsList .item .abstract{
+    height: 40px;
+    font-size: 18px;
+    line-height: 20px;
+    overflow: hidden;
+}
+.newsList .item .detail{
     font-size: 18px;
     background: #122937;
     color:#d1d3d4;
@@ -398,7 +418,6 @@ li{
     border-bottom: 2px solid #122937;
 }
 .footerList .item .row{
-    height: 30px;
     line-height: 30px;
 }
 .footer .item .phoneRow{
@@ -461,6 +480,11 @@ li{
 .singleContent img{
     display: block;
     max-width: 100% !important;
+    margin:auto;
+}
+.singleContent p{
+    text-indent: 32px;
+    line-height: 20px;
 }
 .singleInfo{
     font-size: 0px;
@@ -617,6 +641,125 @@ li{
     margin-left: 15px;
     cursor:pointer;
 }
+
+@media screen and (max-width:960px){
+    body{
+        padding-top: 0px;
+    }
+    .header{
+        position: static;
+        height: auto;
+    }
+    .logo{
+        display: block;
+        float: none;
+    }
+    .logo a{
+        margin: auto;
+    }
+    .menu-main-container{
+        display: block;
+        height: 120px;
+        float: none;
+    }
+    .menu{
+        text-align: center;
+    }
+    .topPostList .item .info{
+        height: 200px;
+        margin: -100px 0px 0px -40%;
+    }
+    .topPostList .item .info .title{
+        font-size: 24px;
+    }
+    .topPostList .item .info .subTitle{
+        font-size: 18px;
+    }
+    .topPostList .item .info .detail{
+        font-size: 14px;
+    }
+    .footerList .item{
+        width:50%;
+    }
+    .footerList .item:first-child+.item{
+        display: none;
+    }
+}
+@media screen and (max-width:725px){
+    .menu-main-container{
+        height: 90px;
+    }
+    .menu .menu-item a{
+        width: 70px;
+        font-size: 16px;
+    }
+    .teachersList .item .course{
+        margin-left: 0px;
+        display: block;
+    }
+    .teachersList .item .detail{
+        width:auto;
+        margin:30px 0px 20px 0px;
+    }
+    .newsList .item .detail{
+        width:auto;
+        margin:30px 0px 20px 0px;
+    }
+    .postList .item .info .detail{
+        margin: 20px 0px 0px 0px;
+    }
+    .filterContainer{
+        display: none;
+    }
+    .singleInfo{
+        padding:15px 7%;
+    }
+    .singleIntroduce{
+        padding:15px 10%;
+    }
+    .footerList .item{
+        width: 100%;
+        display: block;
+    }
+}
+@media screen and (max-width:500px){
+    .topPostContainer{
+        display: none;
+    }
+    .teachersList .item,.newsList .item{
+        width: 100%;
+    }
+    .postList .item .thumb{
+        width: 100%;
+        display: block;
+    }
+    .page-numbers li a, .page-numbers li span{
+        font-size: 14px;
+        height: 30px;
+        line-height: 30px;
+        padding:0px 10px;
+    }
+    .singleInfo .thumb{
+        display: block;
+        width: 100%;
+    }
+}
+@media screen and (max-width:420px){
+    .logo{
+        display: none;
+    }
+    .menu-main-container{
+        height: 40px;
+    }
+    .menu .menu-item a{
+        background: none !important;
+        padding:0px 2px;
+        line-height: 40px;
+        width: auto;
+        font-size: 14px;
+    }
+}
+
 
 
 

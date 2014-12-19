@@ -38,8 +38,11 @@ var index=(function(){
         next:toNext,
         itemClick:function(index){
             var top=$("#section"+index).offset().top;
+            if($("body").width()>960){
+                top=top-120;
+            }
             $("html,body").animate({
-                "scrollTop":top-120
+                "scrollTop":top
             },800);
         }
     }

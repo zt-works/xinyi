@@ -854,5 +854,62 @@ function zy_delete_post($post_id)
 
 add_action('deleted_post', 'zy_delete_post');
 
+/**----------------------------------------------资料管理-----------------------------------*/
+$template_dir=get_template_directory();
+$template_url=get_template_directory_uri();
+include($template_dir."/pages/controller/class_resource_controller.php");
+$resource_controller=new Resource_Controller();
+
+function load_resource($hook){
+    global $template_url;
+
+   if(isset($_GET["page"])){
+        if($_GET["page"]=="common_resource_mgr"||$_GET["page"]=="personal_resource_mgr"){
+
+            wp_enqueue_script("jqpagination",$template_url.'/js/backend/lib/jquery.jqpagination.min.js');
+            wp_enqueue_script("resource_mgr",$template_url.'/js/backend/src/resourceMgr.js');
+            wp_enqueue_style("resource_css",$template_url.'/css/backend/src/resource.css');
+
+        }else if($_GET["page"]=="add_resource"){
+            wp_enqueue_style("resource_css",$template_url.'/css/backend/src/resource.css');
+            wp_enqueue_script("own_plupload",$template_url.'/js/backend/lib/plupload.full.min.js');
+            wp_enqueue_script("qiniu",$template_url.'/js/backend/lib/qiniu.js');
+            wp_enqueue_script("add_resource",$template_url.'/js/backend/src/addResource.js');
+        }
+    }
+}
+//admin_head,admin_print_scripts一般都只是输出，函数中用echo
+add_action('admin_enqueue_scripts', 'load_resource');
+
+add_action("admin_init",array($resource_controller,"add_table"));
+
+function common_resource_mgr_page(){
+    global $template_dir;
+    include($template_dir."/pages/view/common_resource_mgr.php");
+}
+function personal_resource_mgr_page(){
+    global $template_dir;
+    include($template_dir."/pages/view/personal_resource_mgr.php");
+}
+function add_resource_page(){
+    global $template_dir;
+    include($template_dir."/pages/view/add_resource.php");
+}
+function zy_add_menu(){
+    add_media_page("公共资源","公共资源",'read','common_resource_mgr',"common_resource_mgr_page");
+    add_media_page("个人资源","个人资源",'read','personal_resource_mgr',"personal_resource_mgr_page");
+    add_media_page("添加资源","添加资源","manage_options","add_resource","add_resource_page");
+}
+add_action("admin_menu","zy_add_menu");
+
+
+add_action("wp_ajax_add_resource",array($resource_controller,"add_resource"));
+add_action("wp_ajax_get_upload_token",array($resource_controller,"create_upload_token"));
+add_action("wp_ajax_nopriv_get_upload_token",array($resource_controller,"create_upload_token"));
+add_action("wp_ajax_get_access_token",array($resource_controller,"create_access_token"));
+
+//add_action("wp_ajax_nopriv_receive_m3u8_url",array($resource_controller,"receive_m3u8_url"));
+
+
 
 

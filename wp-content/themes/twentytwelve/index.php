@@ -106,17 +106,17 @@ $about_id=5;//关于分类id
             while ( $query->have_posts() ) {
                 $query->the_post();
                 $post_id=get_the_ID();
-                $date=get_post_meta($post_id,"date",true);
-                $teacher=get_post_meta($post_id,"teacher",true)
+                $date_range=get_post_meta($post_id,"date_range",true);
+                $address=get_post_meta($post_id,"address",true)
 
                 ?>
                 <li class="item">
                     <div class="info">
                         <!--后台的摘要-->
-                        <p class="date"><?php echo $date; ?></p>
+                        <p class="date"><?php echo $date_range; ?></p>
                         <h3 class="title"><?php the_title(); ?></h3>
                         <!--教师采用自定义字段-->
-                        <p class="teacher">教师：<?php echo $teacher; ?></p>
+                        <p class="teacher">地点：<?php echo $address; ?></p>
                     </div>
                     <a href="<?php the_permalink(); ?>" class="detail">详细信息</a>
                 </li>
@@ -168,7 +168,7 @@ $about_id=5;//关于分类id
                 <li class="item">
                     <img class="thumb" src="<?php echo $showDir; ?>">
                     <div class="info">
-                        <h3 class="title"><?php the_title(); ?></h3>
+                        <h3 class="title textEllipsis"><?php the_title(); ?></h3>
                         <span class="grade">年级：<?php echo $grade; ?></span>
                         <span class="course">科目：<?php echo $course; ?></span>
                         <p class="abstract"><?php echo get_the_excerpt(); ?></p>
@@ -223,7 +223,7 @@ $about_id=5;//关于分类id
                 <li class="item">
                     <img class="thumb" src="<?php echo $showDir; ?>">
                     <div class="info">
-                        <h3 class="title"><?php the_title(); ?></h3>
+                        <h3 class="title textEllipsis"><?php the_title(); ?></h3>
                         <p class="abstract"><?php echo get_the_excerpt(); ?></p>
                     </div>
                     <a href="<?php the_permalink(); ?>" class="detail">详细信息</a>

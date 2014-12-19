@@ -4,15 +4,17 @@ $current_category=get_the_category();
 
 global $wp_query;
 $get_grade=$_GET["grade"];
-$get_course=$_GET["course"];
+$get_full_year=$_GET["full_year"];
+
+//print_r($_GET);
 
 $args=$wp_query->query_vars;
 $meta_query=array();
-if($get_grade!="all"){
+if($get_grade&&$get_grade!="all"){
     array_push($meta_query,array("key"=>"grade","value"=>$get_grade));
 }
-if($get_course!="all"){
-    array_push($meta_query,array("key"=>"course","value"=>$get_course));
+if($get_grade&&$get_full_year!="all"){
+    array_push($meta_query,array("key"=>"year","value"=>$get_full_year));
 }
 
 $args = array_merge( $args,array("meta_query"=>$meta_query));
@@ -27,14 +29,25 @@ query_posts($args);
             <label class="labelTxt">年级:</label>
             <select class="selectTxt" name="grade">
                 <option value="all">全部</option>
-                <option value="初中">初中</option>
-                <option value="高中">高中</option>
+                <option value="一年级">一年级</option>
+                <option value="二年级">二年级</option>
+                <option value="三年级">三年级</option>
+                <option value="四年级">四年级</option>
+                <option value="五年级">五年级</option>
+                <option value="六年级">六年级</option>
+                <option value="七年级">七年级</option>
+                <option value="八年级">八年级</option>
+                <option value="九年级">九年级</option>
             </select>
-            <label class="labelTxt">科目:</label>
-            <select class="selectTxt" name="course">
+            <label class="labelTxt">年份:</label>
+            <select class="selectTxt" name="full_year">
                 <option value="all">全部</option>
-                <option value="语文">语文</option>
-                <option value="数学">数学</option>
+                <option value="2014">2014</option>
+                <option value="2015">2015</option>
+                <option value="2016">2016</option>
+                <option value="2017">2017</option>
+                <option value="2018">2018</option>
+                <option value="2019">2019</option>
             </select>
             <input class="searchBtn" value="搜索" type="submit">
         </form>
@@ -44,9 +57,9 @@ query_posts($args);
 
             $post_id=get_the_ID();
             $thumb="";
-            $date=get_post_meta($post_id,"date",true);
-            $teacher=get_post_meta($post_id,"teacher",true);
-            $course=get_post_meta($post_id,"course",true);
+            $date_range=get_post_meta($post_id,"date_range",true);
+            $address=get_post_meta($post_id,"address",true);
+            $full_year=get_post_meta($post_id,"full_year",true);
             $grade=get_post_meta($post_id,"grade",true);
             if(has_post_thumbnail($post_id)){
                 $thumbnail_id=get_post_thumbnail_id($post_id);
@@ -63,9 +76,9 @@ query_posts($args);
                 <div class="info">
                     <h2><?php the_title(); ?></h2>
                     <p>年级：<?php echo $grade; ?></p>
-                    <p>科目：<?php echo $course; ?></p>
-                    <p>教师：<?php echo $teacher; ?></p>
-                    <p>开课周期：<?php echo $date; ?></p>
+                    <p>年份：<?php echo $full_year; ?></p>
+                    <p>地点：<?php echo $address; ?></p>
+                    <p>开课周期：<?php echo $date_range; ?></p>
                     <a href="<?php the_permalink(); ?>" class="detail">详细信息</a>
                 </div>
             </li>
@@ -86,7 +99,7 @@ if ($total > 1) {
     $base=get_pagenum_link(1) . '%_%';
     if(!empty($permalink_structure)){
         $base=user_trailingslashit(
-            trailingslashit( remove_query_arg( array('grade',"course") ,get_pagenum_link(1,false)) ).
+            trailingslashit( remove_query_arg( array('grade',"year") ,get_pagenum_link(1,false)) ).
             'page/%#%/', 'paged' );
     }
     //print_r(get_pagenum_link(1)."<br>".$base);
@@ -96,7 +109,7 @@ if ($total > 1) {
         'current' => $current_page,
         'total' => $total,
         'mid_size' => 4,
-        "add_args"=>array( 'grade' => $get_grade,"course"=>$get_course),
+        "add_args"=>array( 'grade' => $get_grade,"year"=>$get_full_year),
         'type' => 'list'
     ));
 }
